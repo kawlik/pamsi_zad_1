@@ -1,9 +1,10 @@
 #include <algorithm>
 #include <ctime>
 #include <cmath>
+#include <fstream>
 #include <functional>
 #include <iostream>
-#include <string>
+#include <utility>
 #include <vector>
 
 #include "source/main.hh"
@@ -23,11 +24,20 @@ int main( int argc, char *argv[] ) {
     srand( time(NULL) );
 
     /*   *   *   *   *   *   *   *   *   *   */
+    
+    if( argc < 4 ) {
+        cout << "Not enough data!" << endl;
+        return 2;
+    }
 
+    unsigned int baseSize = atoi( argv[1] );
+    unsigned int dataSetSize = atoi( argv[2] );
+
+    string fileName = argv[3];
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    Sort<int> sort( 10000, 100 );
+    Sort<int> sort( baseSize, dataSetSize );
 
     int args_heap[] = { sort.getBaseSize() };
     int args_quick[] = { 0, sort.getBaseSize() - 1 };
@@ -104,5 +114,5 @@ int main( int argc, char *argv[] ) {
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    sort.printSet( false );
+    sort.printSet( false, fileName );
 }

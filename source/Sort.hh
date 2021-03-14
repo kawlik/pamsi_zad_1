@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <ctime>
 #include <cmath>
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <utility>
@@ -36,7 +37,7 @@ class Sort {
 
         void fillSet( int min, int max );
         void forEach( function<void( T *, int * )> callback, int *args, string name );
-        void printSet( bool printAll );
+        void printSet( bool printAll, string fileName );
         void pushData( string name, long unsigned int time, bool isValid );
         void randomize( int min, int max, int offset );
 };
@@ -107,12 +108,12 @@ void Sort<T>::forEach( function<void( T *, int * )> callback, int *args, string 
         if(!isValid) {break;}
     }
 
-    long unsigned int time = 1000 * (stop - start) / CLOCKS_PER_SEC;
+    long unsigned int time = stop - start;
     this->pushData( name, time, isValid );
 }
 
 template <typename T>
-void Sort<T>::printSet( bool printAll ) {
+void Sort<T>::printSet( bool printAll, string fileName ) {
 
     if( printAll ) {
 
@@ -124,9 +125,14 @@ void Sort<T>::printSet( bool printAll ) {
         }
     }
     
+    fstream file( fileName, fstream::out );
+
     for( unsigned int i = 0; i < this->outcome.size(); i++ ) {
         cout << this->outcome[i].first << this->outcome[i].second << endl;
+        file << this->outcome[i].first << this->outcome[i].second << endl;
     }
+
+    file.close();
 }
 
 template <typename T>
