@@ -7,8 +7,8 @@ RELOC = obj/main.o
 
 #	#	#	#	#	#	#	#
 
-__start__: ./output
-	./output
+#	__start__: ./output
+#		./output
 
 ./output: obj ${RELOC}
 	g++ ${FINAL} -o ./output ${RELOC}

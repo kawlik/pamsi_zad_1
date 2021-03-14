@@ -36,7 +36,7 @@ class Sort {
 
         void fillSet( int min, int max );
         void forEach( function<void( T *, int * )> callback, int *args, string name );
-        void printSet();
+        void printSet( bool printAll );
         void pushData( string name, long unsigned int time, bool isValid );
         void randomize( int min, int max, int offset );
 };
@@ -112,13 +112,16 @@ void Sort<T>::forEach( function<void( T *, int * )> callback, int *args, string 
 }
 
 template <typename T>
-void Sort<T>::printSet() {
+void Sort<T>::printSet( bool printAll ) {
 
-    for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
-        for( unsigned int j = 0; j < this->baseSize; j++ ) {
-            cout << this->dataSet[i][j] << ' ';
+    if( printAll ) {
+
+        for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
+            for( unsigned int j = 0; j < this->baseSize; j++ ) {
+                cout << this->dataSet[i][j] << ' ';
+            }
+            cout << endl << endl;
         }
-        cout << endl << endl;
     }
     
     for( unsigned int i = 0; i < this->outcome.size(); i++ ) {
@@ -138,7 +141,7 @@ void Sort<T>::randomize( int min, int max, int offset ) {
 
     for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
         for( unsigned int j = 0; j < this->baseSize; j++ ) {
-            if( getRand<T>( min % 1000, max % 1000 ) > offset ) {
+            if( getRand<T>( 1, 1000 ) > offset ) {
                 this->dataSet[i][j] = getRand<T>( min, max );
             }
         }
