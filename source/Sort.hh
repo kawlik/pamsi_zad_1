@@ -40,6 +40,7 @@ class Sort {
         void printSet( bool printAll, string fileName );
         void pushData( string name, long unsigned int time, bool isValid );
         void randomize( int min, int max, int offset );
+        void reverse();
 };
 
 /*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
@@ -126,6 +127,7 @@ void Sort<T>::printSet( bool printAll, string fileName ) {
     }
     
     fstream file( fileName, fstream::out );
+    file << "CLOCKS_PER_SEC = " << CLOCKS_PER_SEC << endl << endl;
 
     for( unsigned int i = 0; i < this->outcome.size(); i++ ) {
         cout << this->outcome[i].first << this->outcome[i].second << endl;
@@ -150,6 +152,16 @@ void Sort<T>::randomize( int min, int max, int offset ) {
             if( getRand<T>( 1, 1000 ) > offset ) {
                 this->dataSet[i][j] = getRand<T>( min, max );
             }
+        }
+    }
+}
+
+template <typename T>
+void Sort<T>::reverse() {
+
+    for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
+        for( unsigned int j = 0; j < this->baseSize; j++ ) {
+            this->dataSet[i][j] = j;
         }
     }
 }
