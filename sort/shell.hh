@@ -4,7 +4,6 @@ using namespace std;
 
 /*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
 
-
 template <typename T>
 void shellSort( T *arr, int *args ) {
 

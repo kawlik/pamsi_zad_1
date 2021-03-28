@@ -95,15 +95,18 @@ void Sort<T>::fillSet( int min, int max ) {
 template <typename T>
 void Sort<T>::forEach( function<void( T *, int * )> callback, int *args, string name ) {
 
-    clock_t start = clock();
     bool isValid = true;
+    clock_t start, stop;
+    
+    start = clock();
 
     for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
         callback( this->dataSet[i], args );
     }
 
-    clock_t stop = clock();
+    stop = clock();
 
+    
     for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
         isValid = this->isSortValid(i);
         if(!isValid) {break;}

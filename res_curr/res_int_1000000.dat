@@ -1,0 +1,26 @@
+CLOCKS_PER_SEC = 1000000
+
+heapSort rand - VALID - 42346389
+heapSort 25.0% - VALID - 34390592
+heapSort 50.0% - VALID - 33922344
+heapSort 75.0% - VALID - 33679749
+heapSort 95.0% - VALID - 33402457
+heapSort 99.0% - VALID - 33774727
+heapSort 99.7% - VALID - 33589909
+heapSort reverse - VALID - 40019335
+quickSort2 rand - VALID - 14516246
+quickSort2 25.0% - VALID - 296770095
+quickSort2 50.0% - VALID - 297872196
+quickSort2 75.0% - VALID - 288792408
+quickSort2 95.0% - VALID - 298194660
+quickSort2 99.0% - VALID - 295890964
+quickSort2 99.7% - VALID - 297035289
+quickSort2 reverse - VALID - 12472944
+shellSort rand - VALID - 20529492
+shellSort 25.0% - VALID - 6203887
+shellSort 50.0% - VALID - 6198895
+shellSort 75.0% - VALID - 6327117
+shellSort 95.0% - VALID - 6280880
+shellSort 99.0% - VALID - 6249364
+shellSort 99.7% - VALID - 6237266
+shellSort reverse - VALID - 8986383

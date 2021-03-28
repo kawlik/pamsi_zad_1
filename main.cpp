@@ -46,7 +46,7 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
     sort.randomize( 0, sort.getBaseSize() - 1, 500 );
     sort.forEach ( heapSort<T>, args_heap, "heapSort 50.0%");
 
-    sort.randomize( 0, sort.getBaseSize() - 1, 550 );
+    sort.randomize( 0, sort.getBaseSize() - 1, 750 );
     sort.forEach ( heapSort<T>, args_heap, "heapSort 75.0%");
 
     sort.randomize( 0, sort.getBaseSize() - 1, 950 );
@@ -62,31 +62,31 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
     sort.forEach ( heapSort<T>, args_heap, "heapSort reverse");
 
     /*   *   *   *   *   *   *   *   *   *   */
-
+    
     sort.fillSet( 0, sort.getBaseSize() - 1 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort rand");
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 rand");
 
     sort.randomize( 0, sort.getBaseSize() - 1, 250 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort 25.0%");
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 25.0%");
 
     sort.randomize( 0, sort.getBaseSize() - 1, 500 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort 50.0%");
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 50.0%");
 
-    sort.randomize( 0, sort.getBaseSize() - 1, 550 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort 75.0%");
+    sort.randomize( 0, sort.getBaseSize() - 1, 750 );
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 75.0%");
 
     sort.randomize( 0, sort.getBaseSize() - 1, 950 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort 95.0%");
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 95.0%");
     
     sort.randomize( 0, sort.getBaseSize() - 1, 990 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort 99.0%");
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 99.0%");
 
     sort.randomize( 0, sort.getBaseSize() - 1, 997 );
-    sort.forEach ( quickSort<T>, args_quick, "quickSort 99.7%");
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 99.7%");
 
     sort.reverse();
-    sort.forEach ( quickSort<T>, args_quick, "quickSort reverse");
-
+    sort.forEach ( quickSort2<T>, args_quick, "quickSort2 reverse");
+    
     /*   *   *   *   *   *   *   *   *   *   */
 
     sort.fillSet( 0, sort.getBaseSize() - 1 );
@@ -98,7 +98,7 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
     sort.randomize( 0, sort.getBaseSize() - 1, 500 );
     sort.forEach ( shellSort<T>, args_shell, "shellSort 50.0%");
 
-    sort.randomize( 0, sort.getBaseSize() - 1, 550 );
+    sort.randomize( 0, sort.getBaseSize() - 1, 750 );
     sort.forEach ( shellSort<T>, args_shell, "shellSort 75.0%");
 
     sort.randomize( 0, sort.getBaseSize() - 1, 950 );
@@ -115,7 +115,7 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    sort.printSet( true, fileName );
+    sort.printSet( false, fileName );
 }
 
 /*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
@@ -141,5 +141,5 @@ int main( int argc, char *argv[] ) {
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    conductTest<int>( baseSize, dataSetSize, range_min, range_max, fileName );    
+    conductTest<char>( baseSize, dataSetSize, range_min, range_max, fileName );    
 }
