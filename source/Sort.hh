@@ -164,7 +164,7 @@ void Sort<T>::reverse() {
 
     for( unsigned int i = 0; i < this->dataSetSize; i++ ) {
         for( unsigned int j = 0; j < this->baseSize; j++ ) {
-            this->dataSet[i][j] = j;
+            this->dataSet[i][j] = this->baseSize - j - 1;
         }
     }
 }

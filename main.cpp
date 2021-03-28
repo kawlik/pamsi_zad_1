@@ -36,7 +36,7 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
     int max = range_max > 0 ? range_max : sort.getBaseSize() - 1;
 
     /*   *   *   *   *   *   *   *   *   *   */
-
+    
     sort.fillSet( min, max );
     sort.forEach ( heapSort<T>, args_heap, "heapSort rand");
 
@@ -57,7 +57,7 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
 
     sort.randomize( 0, sort.getBaseSize() - 1, 997 );
     sort.forEach ( heapSort<T>, args_heap, "heapSort 99.7%");
-
+    
     sort.reverse();
     sort.forEach ( heapSort<T>, args_heap, "heapSort reverse");
 
@@ -83,7 +83,7 @@ void conductTest( unsigned int baseSize, unsigned int dataSetSize, int range_min
 
     sort.randomize( 0, sort.getBaseSize() - 1, 997 );
     sort.forEach ( quickSort2<T>, args_quick, "quickSort2 99.7%");
-
+    
     sort.reverse();
     sort.forEach ( quickSort2<T>, args_quick, "quickSort2 reverse");
     
@@ -141,5 +141,5 @@ int main( int argc, char *argv[] ) {
 
     /*   *   *   *   *   *   *   *   *   *   */
 
-    conductTest<char>( baseSize, dataSetSize, range_min, range_max, fileName );    
+    conductTest<int>( baseSize, dataSetSize, range_min, range_max, fileName );
 }
